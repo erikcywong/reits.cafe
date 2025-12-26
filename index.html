@@ -531,9 +531,214 @@
             margin-right: 10px;
         }
         
+        /* 交易页面样式 */
+        .trade-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 20px;
+        }
+        
+        .trade-form-container, .trade-info-container {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .trade-form-container h3, .trade-info-container h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .trade-form-container h3 i, .trade-info-container h3 i {
+            margin-right: 10px;
+            color: var(--accent-green);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .form-select, .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-select:focus, .form-input:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .input-group input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            font-size: 15px;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+        }
+        
+        .input-group .unit {
+            padding: 0 16px;
+            color: var(--text-secondary);
+            background-color: var(--bg-hover);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .price-display {
+            background-color: var(--bg-primary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .current-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 5px;
+        }
+        
+        .price-change {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .price-change.positive {
+            color: #10b981;
+        }
+        
+        .price-change.negative {
+            color: #ef4444;
+        }
+        
+        .trade-summary {
+            background-color: var(--bg-primary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .summary-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .summary-label {
+            color: var(--text-secondary);
+        }
+        
+        .summary-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .trade-button {
+            width: 100%;
+            padding: 16px;
+            margin-top: 20px;
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .trade-button:hover {
+            background-color: #0da271;
+            transform: translateY(-2px);
+        }
+        
+        .trade-button.sell {
+            background-color: #ef4444;
+        }
+        
+        .trade-button.sell:hover {
+            background-color: #dc2626;
+        }
+        
+        .info-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .info-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .info-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-title i {
+            margin-right: 10px;
+            color: var(--accent-green);
+        }
+        
+        .info-content {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 1024px) {
-            .dashboard-container {
+            .dashboard-container, .trade-container {
                 grid-template-columns: 1fr;
             }
             
@@ -718,6 +923,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="#trade" class="nav-link" data-section="trade">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>立即交易</span>
+                        <div class="indicator"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="#about" class="nav-link" data-section="about">
                         <i class="fas fa-info-circle"></i>
                         <span>关于我们</span>
@@ -751,19 +963,19 @@
                     
                     <div class="stats-container">
                         <div class="stat-card hover-lift">
-                            <div class="stat-value">$2.4B</div>
+                            <div class="stat-value">$2.8B</div>
                             <div class="stat-label">资产管理规模</div>
                         </div>
                         <div class="stat-card hover-lift">
-                            <div class="stat-value">8.7%</div>
+                            <div class="stat-value">9.2%</div>
                             <div class="stat-label">年化收益率</div>
                         </div>
                         <div class="stat-card hover-lift">
-                            <div class="stat-value">156</div>
+                            <div class="stat-value">184</div>
                             <div class="stat-label">覆盖农场</div>
                         </div>
                         <div class="stat-card hover-lift">
-                            <div class="stat-value">24</div>
+                            <div class="stat-value">28</div>
                             <div class="stat-label">国家与地区</div>
                         </div>
                     </div>
@@ -806,11 +1018,11 @@
                     
                     <div class="news-card">
                         <div class="news-header">
-                            <h3 class="news-title">CoffeeOS AI Hub推出咖啡质量智能检测系统</h3>
+                            <h3 class="news-title">JEBI Agent推出咖啡质量智能检测系统</h3>
                             <div class="news-date">2023年10月10日</div>
                         </div>
                         <div class="news-summary">
-                            基于人工智能的咖啡质量检测系统在CoffeeOS平台上正式上线，该系统能够通过图像识别和光谱分析技术，在3秒内完成咖啡豆的质量评级...
+                            基于人工智能的咖啡质量检测系统在JEBI Agent平台上正式上线，该系统能够通过图像识别和光谱分析技术，在3秒内完成咖啡豆的质量评级...
                         </div>
                         <div class="news-detail">
                             <p>这款AI系统利用深度学习算法，分析了超过50万张咖啡豆图像和10万份光谱数据，准确率达到98.7%，远超传统人工评级方法。系统已经应用于JEBI生态系统的咖啡供应链中，显著提高了分级效率和准确性。</p>
@@ -863,34 +1075,34 @@
                     
                     <div class="card hover-lift">
                         <h3 class="card-title"><i class="fas fa-wind"></i> 碳中和咖啡供应链众筹平台</h3>
-                        <p class="card-content">通过www.Jebicapital.com提供碳中和咖啡供应链的众筹服务，连接投资者与可持续咖啡项目，实现碳足迹透明化与抵消。</p>
-                        <a class="ecosystem-link" data-website="jebicapital">
+                        <p class="card-content">通过www.jebistarter.com提供碳中和咖啡供应链的众筹服务，连接投资者与可持续咖啡项目，实现碳足迹透明化与抵消。</p>
+                        <a class="ecosystem-link" data-website="jebistarter">
                             <i class="fas fa-external-link-alt"></i> 查看网站摘要
                         </a>
                         <div style="margin-top: 15px; color: var(--accent-green); font-size: 14px;">
-                            <i class="fas fa-link"></i> www.Jebicapital.com
+                            <i class="fas fa-link"></i> www.jebistarter.com
                         </div>
                     </div>
                     
                     <div class="card hover-lift">
-                        <h3 class="card-title"><i class="fas fa-brain"></i> Coffee AI Hub</h3>
-                        <p class="card-content">www.CoffeeOs.space是咖啡产业的人工智能中心，提供质量检测、产量预测、市场分析等AI服务，驱动咖啡产业链智能化。</p>
-                        <a class="ecosystem-link" data-website="coffeeos">
+                        <h3 class="card-title"><i class="fas fa-brain"></i> JEBI Agent</h3>
+                        <p class="card-content">www.jebi.one是咖啡产业的人工智能中心，提供质量检测、产量预测、市场分析等AI服务，驱动咖啡产业链智能化。</p>
+                        <a class="ecosystem-link" data-website="jebiagent">
                             <i class="fas fa-external-link-alt"></i> 查看网站摘要
                         </a>
                         <div style="margin-top: 15px; color: var(--accent-green); font-size: 14px;">
-                            <i class="fas fa-link"></i> www.CoffeeOs.space
+                            <i class="fas fa-link"></i> www.jebi.one
                         </div>
                     </div>
                     
                     <div class="card hover-lift">
                         <h3 class="card-title"><i class="fas fa-store"></i> 咖啡连锁店</h3>
-                        <p class="card-content">通过www.Nexweave.cafe运营的精品咖啡连锁店，将JEBI生态系统的可持续咖啡直接带给消费者，打造从农场到杯子的完整体验。</p>
-                        <a class="ecosystem-link" data-website="nexweave">
+                        <p class="card-content">通过jebi.cafe运营的精品咖啡连锁店，将JEBI生态系统的可持续咖啡直接带给消费者，打造从农场到杯子的完整体验。</p>
+                        <a class="ecosystem-link" data-website="jebicafe">
                             <i class="fas fa-external-link-alt"></i> 查看网站摘要
                         </a>
                         <div style="margin-top: 15px; color: var(--accent-green); font-size: 14px;">
-                            <i class="fas fa-link"></i> www.Nexweave.cafe
+                            <i class="fas fa-link"></i> jebi.cafe
                         </div>
                     </div>
                     
@@ -915,6 +1127,28 @@
                             <i class="fas fa-link"></i> www.Curvecopyright.org
                         </div>
                     </div>
+                    
+                    <div class="card hover-lift">
+                        <h3 class="card-title"><i class="fas fa-ecosystem"></i> JEBI生态系统平台</h3>
+                        <p class="card-content">Nexcoffee.cn是JEBI生态系统的核心门户，整合所有子平台资源，提供统一的接入点和生态概览。</p>
+                        <a class="ecosystem-link" data-website="nexcoffee">
+                            <i class="fas fa-external-link-alt"></i> 查看网站摘要
+                        </a>
+                        <div style="margin-top: 15px; color: var(--accent-green); font-size: 14px;">
+                            <i class="fas fa-link"></i> www.Nexcoffee.cn
+                        </div>
+                    </div>
+                    
+                    <div class="card hover-lift">
+                        <h3 class="card-title"><i class="fas fa-industry"></i> 咖啡豆处理与烘焙工作室平台</h3>
+                        <p class="card-content">Jebiwork.com提供专业的咖啡生豆处理及烘焙工作室平台，整合全球优质咖啡生豆资源与烘焙技术。</p>
+                        <a class="ecosystem-link" data-website="jebiwork">
+                            <i class="fas fa-external-link-alt"></i> 查看网站摘要
+                        </a>
+                        <div style="margin-top: 15px; color: var(--accent-green); font-size: 14px;">
+                            <i class="fas fa-link"></i> www.Jebiwork.com
+                        </div>
+                    </div>
                 </div>
             </section>
             
@@ -937,19 +1171,19 @@
                     
                     <div class="stats-container">
                         <div class="stat-card hover-lift">
-                            <div class="stat-value">$42.75</div>
+                            <div class="stat-value">$45.32</div>
                             <div class="stat-label">当前价格</div>
                         </div>
                         <div class="stat-card hover-lift">
-                            <div class="stat-value">+2.4%</div>
+                            <div class="stat-value">+3.2%</div>
                             <div class="stat-label">日涨幅</div>
                         </div>
                         <div class="stat-card hover-lift">
-                            <div class="stat-value">$1.28M</div>
+                            <div class="stat-value">$1.85M</div>
                             <div class="stat-label">日交易量</div>
                         </div>
                         <div class="stat-card hover-lift">
-                            <div class="stat-value">4.2%</div>
+                            <div class="stat-value">4.5%</div>
                             <div class="stat-label">股息率</div>
                         </div>
                     </div>
@@ -960,7 +1194,7 @@
                         <h3 class="card-title"><i class="fas fa-shopping-cart"></i> 立即交易</h3>
                         <p class="card-content">通过我们的安全交易平台买卖JEBI REITs份额。提供实时报价、高级订单类型和深度市场数据分析。</p>
                         <div style="margin-top: 20px;">
-                            <button style="background: var(--accent-green); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;">开始交易</button>
+                            <button id="goToTradeBtn" style="background: var(--accent-green); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%;">进入交易界面</button>
                         </div>
                     </div>
                     
@@ -972,6 +1206,121 @@
                     <div class="card hover-lift">
                         <h3 class="card-title"><i class="fas fa-chart-pie"></i> 资产穿透查看</h3>
                         <p class="card-content">深入了解您的REITs投资背后的实物资产：咖啡农场、加工设施、物流中心和零售店面的实时运营数据。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 立即交易部分 -->
+            <section id="trade" class="section">
+                <div class="section-header">
+                    <div>
+                        <h1 class="section-title">立即交易</h1>
+                        <p class="section-subtitle">JEBI REITs实时交易平台 - 买卖咖啡全产业链资产份额</p>
+                    </div>
+                    <div style="color: var(--accent-green);">
+                        <i class="fas fa-lock"></i> 安全交易
+                    </div>
+                </div>
+                
+                <div class="trade-container">
+                    <div class="trade-form-container">
+                        <h3><i class="fas fa-exchange-alt"></i> 交易面板</h3>
+                        
+                        <div class="price-display">
+                            <div class="current-price">$45.32</div>
+                            <div class="price-change positive">+$1.42 (+3.2%) 今日</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">交易类型</label>
+                            <select class="form-select" id="tradeType">
+                                <option value="buy">买入 JEBI REITs</option>
+                                <option value="sell">卖出 JEBI REITs</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">交易数量 (份额)</label>
+                            <div class="input-group">
+                                <input type="number" id="tradeAmount" min="1" max="10000" value="10">
+                                <div class="unit">份额</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">订单类型</label>
+                            <select class="form-select" id="orderType">
+                                <option value="market">市价订单</option>
+                                <option value="limit">限价订单</option>
+                                <option value="stop">止损订单</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="priceLimitGroup" style="display: none;">
+                            <label class="form-label">限价 ($)</label>
+                            <input type="number" class="form-input" id="limitPrice" min="0.01" step="0.01" placeholder="输入限价">
+                        </div>
+                        
+                        <div class="trade-summary">
+                            <div class="summary-row">
+                                <span class="summary-label">交易数量</span>
+                                <span class="summary-value" id="summaryAmount">10 份额</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">单价</span>
+                                <span class="summary-value" id="summaryPrice">$45.32</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">预估总价</span>
+                                <span class="summary-value" id="summaryTotal">$453.20</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">交易费用</span>
+                                <span class="summary-value" id="summaryFee">$2.27 (0.5%)</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">总计</span>
+                                <span class="summary-value" id="summaryFinal">$455.47</span>
+                            </div>
+                        </div>
+                        
+                        <button class="trade-button" id="confirmTradeBtn">确认买入</button>
+                    </div>
+                    
+                    <div class="trade-info-container">
+                        <h3><i class="fas fa-info-circle"></i> 交易信息</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-title"><i class="fas fa-chart-line"></i> 市场概览</div>
+                            <div class="info-content">
+                                JEBI REITs当前交易价格为$45.32，今日上涨3.2%。过去30天累计涨幅达到12.5%，表现优于市场基准指数。当前股息率为4.5%，下一期股息支付日为2023年12月15日。
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-title"><i class="fas fa-shield-alt"></i> 交易安全</div>
+                            <div class="info-content">
+                                所有交易均通过银行级SSL加密保护，资金由第三方托管机构保管。JEBI REITs交易平台已获得金融监管机构许可，确保交易合法合规。
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-title"><i class="fas fa-clock"></i> 交易时间</div>
+                            <div class="info-content">
+                                正常交易时间：周一至周五 9:30 - 16:00 (EST)。盘前交易：7:00 - 9:30 (EST)，盘后交易：16:00 - 20:00 (EST)。周末和法定节假日休市。
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-title"><i class="fas fa-question-circle"></i> 交易说明</div>
+                            <div class="info-content">
+                                1. 市价订单将按当前市场价格立即执行<br>
+                                2. 限价订单只在达到指定价格时执行<br>
+                                3. 止损订单在达到指定价格时转为市价订单<br>
+                                4. 交易确认后不可撤销<br>
+                                5. 资金结算需要1-2个工作日
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1028,7 +1377,7 @@
     </div>
 
     <script>
-        // 网站摘要数据
+        // 网站摘要数据 - 已删除重复的JEBI.one项
         const websiteSummaries = {
             jebispace: {
                 title: "JEBI.space - Aeroponic Coffee Farming",
@@ -1053,13 +1402,13 @@
                     <p>采用气雾栽培技术的咖啡农场是JEBI REITs的重要底层资产，其高效、可持续的生产模式为投资者提供了稳定且环境友好的收益来源。</p>
                 `
             },
-            jebicapital: {
-                title: "Jebicapital.com - 碳中和咖啡供应链众筹平台",
-                url: "https://www.Jebicapital.com",
+            jebistarter: {
+                title: "jebistarter.com - 碳中和咖啡供应链众筹平台",
+                url: "https://www.jebistarter.com",
                 icon: "fas fa-wind",
                 summary: `
                     <h4>平台定位</h4>
-                    <p>Jebicapital.com 是一个专注于碳中和咖啡供应链项目的众筹平台，连接寻求可持续投资的资本与创新的咖啡产业链项目。</p>
+                    <p>jebistarter.com 是一个专注于碳中和咖啡供应链项目的众筹平台，连接寻求可持续投资的资本与创新的咖啡产业链项目。</p>
                     
                     <h4>核心功能</h4>
                     <ul>
@@ -1076,13 +1425,13 @@
                     <p>该平台孵化的优质项目成熟后，可成为JEBI REITs的潜在收购目标，为REITs提供持续的优质资产来源。</p>
                 `
             },
-            coffeeos: {
-                title: "CoffeeOs.space - 咖啡AI中心",
-                url: "https://www.CoffeeOs.space",
+            jebiagent: {
+                title: "jebi.one - JEBI Agent 人工智能中心",
+                url: "https://www.jebi.one",
                 icon: "fas fa-brain",
                 summary: `
                     <h4>平台定位</h4>
-                    <p>CoffeeOs.space 是咖啡产业的AI技术中心，提供全方位的人工智能解决方案，驱动咖啡产业链的数字化转型和智能化升级。</p>
+                    <p>jebi.one 是JEBI生态系统的AI技术中心，提供全方位的人工智能解决方案，驱动咖啡产业链的数字化转型和智能化升级。</p>
                     
                     <h4>核心AI服务</h4>
                     <ul>
@@ -1096,16 +1445,16 @@
                     <p>平台基于先进的机器学习算法和物联网技术，整合了超过50万张咖啡豆图像和10万份光谱数据的训练集，构建了行业领先的咖啡AI模型。</p>
                     
                     <h4>与JEBI REITs的关联</h4>
-                    <p>CoffeeOs的AI系统是JEBI REITs资产运营管理的核心技术工具，通过提升运营效率和产品质量，直接增加REITs底层资产的现金流和价值。</p>
+                    <p>JEBI Agent的AI系统是JEBI REITs资产运营管理的核心技术工具，通过提升运营效率和产品质量，直接增加REITs底层资产的现金流和价值。</p>
                 `
             },
-            nexweave: {
-                title: "Nexweave.cafe - JEBI咖啡连锁店",
-                url: "https://www.Nexweave.cafe",
+            jebicafe: {
+                title: "jebi.cafe - JEBI咖啡连锁店",
+                url: "https://jebi.cafe",
                 icon: "fas fa-store",
                 summary: `
                     <h4>品牌定位</h4>
-                    <p>Nexweave.cafe 是JEBI生态系统旗下的精品咖啡连锁品牌，将可持续种植的咖啡直接带给消费者，打造从农场到杯子的完整体验。</p>
+                    <p>jebi.cafe 是JEBI生态系统旗下的精品咖啡连锁品牌，将可持续种植的咖啡直接带给消费者，打造从农场到杯子的完整体验。</p>
                     
                     <h4>特色亮点</h4>
                     <ul>
@@ -1119,7 +1468,7 @@
                     <p>采用直营和特许经营结合的模式，在全球主要城市扩展。单店平均日销售额比行业平均水平高35%，客户复购率达到68%。</p>
                     
                     <h4>与JEBI REITs的关联</h4>
-                    <p>Nexweave.cafe的门店物业是JEBI REITs的重要零售资产组成部分，其稳定增长的销售额为REITs提供了可靠的租金收入和收益分成。</p>
+                    <p>jebi.cafe的门店物业是JEBI REITs的重要零售资产组成部分，其稳定增长的销售额为REITs提供了可靠的租金收入和收益分成。</p>
                 `
             },
             shinaebank: {
@@ -1167,7 +1516,54 @@
                     <h4>与JEBI REITs的关联</h4>
                     <p>Curvecopyright.org为JEBI REITs开辟了全新的无形资产资产类别。咖啡烘焙曲线IP可以作为REITs的补充资产，其授权收入为REITs提供了多元化的收益来源。</p>
                 `
+            },
+            nexcoffee: {
+                title: "Nexcoffee.cn - JEBI生态系统门户",
+                url: "https://www.Nexcoffee.cn",
+                icon: "fas fa-ecosystem",
+                summary: `
+                    <h4>平台定位</h4>
+                    <p>Nexcoffee.cn 是JEBI生态系统的核心门户和统一入口，整合了所有子平台资源，为用户提供一站式的生态系统访问体验。</p>
+                    
+                    <h4>核心功能</h4>
+                    <ul>
+                        <li><strong>生态概览</strong>：全面展示JEBI生态系统各平台的功能与关联</li>
+                        <li><strong>统一登录</strong>：提供跨平台的单点登录服务</li>
+                        <li><strong>数据驾驶舱</strong>：集中展示各平台关键运营数据与指标</li>
+                        <li><strong>资源导航</strong>：智能引导用户至最适合的子平台服务</li>
+                    </ul>
+                    
+                    <h4>设计理念</h4>
+                    <p>平台采用模块化设计，确保各子平台既能独立运营，又能无缝协同。通过统一的数据标准和API接口，实现生态系统内部数据的高效流动和价值最大化。</p>
+                    
+                    <h4>与JEBI REITs的关联</h4>
+                    <p>Nexcoffee.cn是JEBI REITs投资者了解底层资产运营状况的重要窗口，通过该门户可以透明地追踪咖啡从种植到零售的全链条数据。</p>
+                `
+            },
+            jebiwork: {
+                title: "Jebiwork.com - 咖啡豆处理与烘焙工作室平台",
+                url: "https://www.Jebiwork.com",
+                icon: "fas fa-industry",
+                summary: `
+                    <h4>平台定位</h4>
+                    <p>Jebiwork.com 是一个专业的咖啡生豆处理及烘焙工作室平台，整合全球优质咖啡生豆资源与先进烘焙技术。</p>
+                    
+                    <h4>核心服务</h4>
+                    <ul>
+                        <li><strong>生豆采购</strong>：直接连接全球优质咖啡产区，提供可追溯的生豆资源</li>
+                        <li><strong>处理技术支持</strong>：分享水洗、日晒、蜜处理等先进咖啡处理技术</li>
+                        <li><strong>烘焙工作室</strong>：提供专业级烘焙设备租赁与技术支持服务</li>
+                        <li><strong>风味研发</strong>：协助咖啡品牌进行特色风味研发与配方优化</li>
+                    </ul>
+                    
+                    <h4>技术创新</h4>
+                    <p>平台引入智能烘焙控制系统，通过物联网技术实时监控烘焙曲线，确保每一批咖啡豆的烘焙一致性。同时建立全球咖啡风味数据库，为烘焙师提供数据支持。</p>
+                    
+                    <h4>与JEBI REITs的关联</h4>
+                    <p>Jebiwork.com平台上的优质烘焙工作室是JEBI REITs的重要资产组成部分，其稳定的租赁收入和增值服务收益为REITs提供了多样化的现金流。</p>
+                `
             }
+            // 已删除重复的JEBI.one项
         };
         
         // SPA导航功能
@@ -1263,6 +1659,9 @@
                 }
             });
             
+            // 交易页面功能
+            setupTradePage();
+            
             // 初始化图表
             initCharts();
         });
@@ -1301,22 +1700,150 @@
             window.open(url, '_blank');
         }
         
+        // 设置交易页面功能
+        function setupTradePage() {
+            // 进入交易界面按钮
+            const goToTradeBtn = document.getElementById('goToTradeBtn');
+            if (goToTradeBtn) {
+                goToTradeBtn.addEventListener('click', function() {
+                    // 切换到交易页面
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+                    
+                    document.querySelector('.nav-link[data-section="trade"]').classList.add('active');
+                    document.getElementById('trade').classList.add('active');
+                });
+            }
+            
+            // 交易类型切换
+            const tradeTypeSelect = document.getElementById('tradeType');
+            const priceLimitGroup = document.getElementById('priceLimitGroup');
+            const confirmTradeBtn = document.getElementById('confirmTradeBtn');
+            
+            if (tradeTypeSelect) {
+                tradeTypeSelect.addEventListener('change', function() {
+                    updateTradeButton();
+                    calculateTradeSummary();
+                });
+            }
+            
+            // 订单类型切换
+            const orderTypeSelect = document.getElementById('orderType');
+            if (orderTypeSelect) {
+                orderTypeSelect.addEventListener('change', function() {
+                    if (this.value === 'limit') {
+                        priceLimitGroup.style.display = 'block';
+                    } else {
+                        priceLimitGroup.style.display = 'none';
+                    }
+                    calculateTradeSummary();
+                });
+            }
+            
+            // 交易数量输入
+            const tradeAmountInput = document.getElementById('tradeAmount');
+            if (tradeAmountInput) {
+                tradeAmountInput.addEventListener('input', calculateTradeSummary);
+            }
+            
+            // 限价输入
+            const limitPriceInput = document.getElementById('limitPrice');
+            if (limitPriceInput) {
+                limitPriceInput.addEventListener('input', calculateTradeSummary);
+            }
+            
+            // 确认交易按钮
+            if (confirmTradeBtn) {
+                confirmTradeBtn.addEventListener('click', function() {
+                    const tradeType = document.getElementById('tradeType').value;
+                    const amount = document.getElementById('tradeAmount').value;
+                    const orderType = document.getElementById('orderType').value;
+                    const limitPrice = document.getElementById('limitPrice').value;
+                    const total = document.getElementById('summaryFinal').textContent;
+                    
+                    let message = `确认${tradeType === 'buy' ? '买入' : '卖出'} ${amount} 份额 JEBI REITs？\n`;
+                    message += `订单类型：${orderType === 'market' ? '市价' : orderType === 'limit' ? '限价' : '止损'}\n`;
+                    if (orderType === 'limit' && limitPrice) {
+                        message += `限价：$${limitPrice}\n`;
+                    }
+                    message += `总计：${total}`;
+                    
+                    if (confirm(message)) {
+                        alert('交易订单已提交！\n订单ID: ' + generateOrderId() + '\n我们将在1-2个工作日内处理您的订单。');
+                        // 重置表单
+                        document.getElementById('tradeAmount').value = 10;
+                        document.getElementById('limitPrice').value = '';
+                        calculateTradeSummary();
+                    }
+                });
+            }
+            
+            // 初始化计算
+            calculateTradeSummary();
+            updateTradeButton();
+        }
+        
+        // 更新交易按钮文本
+        function updateTradeButton() {
+            const tradeType = document.getElementById('tradeType').value;
+            const confirmTradeBtn = document.getElementById('confirmTradeBtn');
+            
+            if (confirmTradeBtn) {
+                confirmTradeBtn.textContent = tradeType === 'buy' ? '确认买入' : '确认卖出';
+                confirmTradeBtn.className = tradeType === 'buy' ? 'trade-button' : 'trade-button sell';
+            }
+        }
+        
+        // 计算交易摘要
+        function calculateTradeSummary() {
+            const amount = parseInt(document.getElementById('tradeAmount').value) || 0;
+            const price = 45.32; // 当前价格
+            const tradeType = document.getElementById('tradeType').value;
+            
+            // 计算总价
+            let total = amount * price;
+            
+            // 计算交易费用 (0.5%)
+            let fee = total * 0.005;
+            
+            // 如果是卖出，费用从总收入中扣除
+            let finalTotal = tradeType === 'buy' ? total + fee : total - fee;
+            
+            // 更新摘要显示
+            document.getElementById('summaryAmount').textContent = amount + ' 份额';
+            document.getElementById('summaryPrice').textContent = '$' + price.toFixed(2);
+            document.getElementById('summaryTotal').textContent = '$' + total.toFixed(2);
+            document.getElementById('summaryFee').textContent = '$' + fee.toFixed(2) + ' (0.5%)';
+            document.getElementById('summaryFinal').textContent = '$' + finalTotal.toFixed(2);
+        }
+        
+        // 生成随机订单ID
+        function generateOrderId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = 'ORD-';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+        
         // 图表初始化
         function initCharts() {
-            // 投资组合分布图表
+            // JEBI REITs资产组合分布图表
             const portfolioCtx = document.getElementById('portfolioChart').getContext('2d');
             new Chart(portfolioCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['咖啡农场', '加工设施', '物流中心', '零售店面', '研发中心'],
+                    labels: ['气雾栽培农场', '加工处理设施', '物流仓储中心', '零售咖啡店面', '烘焙工作室', '研发创新中心'],
                     datasets: [{
-                        data: [35, 25, 15, 20, 5],
+                        data: [32, 22, 18, 15, 8, 5],
                         backgroundColor: [
-                            '#10b981',
-                            '#d97706',
-                            '#3b82f6',
-                            '#8b5cf6',
-                            '#ef4444'
+                            '#10b981', // 绿色 - 农场
+                            '#d97706', // 棕色 - 加工
+                            '#3b82f6', // 蓝色 - 物流
+                            '#8b5cf6', // 紫色 - 零售
+                            '#f59e0b', // 琥珀色 - 工作室
+                            '#ef4444'  // 红色 - 研发
                         ],
                         borderWidth: 0,
                         hoverOffset: 15
@@ -1332,6 +1859,18 @@
                                 color: '#f0f0f0',
                                 font: {
                                     size: 13
+                                },
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${value}% (${percentage}%)`;
                                 }
                             }
                         }
@@ -1339,19 +1878,28 @@
                 }
             });
             
-            // 收益贡献图表
+            // 咖啡产业链各环节收益贡献图表
             const revenueCtx = document.getElementById('revenueChart').getContext('2d');
             new Chart(revenueCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['种植', '加工', '物流', '零售', 'IP授权', '碳交易'],
+                    labels: ['种植生产', '加工处理', '物流仓储', '零售销售', 'IP授权', '碳信用交易', '技术服务'],
                     datasets: [{
                         label: '收益贡献 (%)',
-                        data: [30, 20, 10, 25, 10, 5],
-                        backgroundColor: '#10b981',
-                        borderColor: '#0da271',
+                        data: [28, 19, 12, 24, 8, 5, 4],
+                        backgroundColor: [
+                            '#10b981', // 种植
+                            '#d97706', // 加工
+                            '#3b82f6', // 物流
+                            '#8b5cf6', // 零售
+                            '#f59e0b', // IP授权
+                            '#06b6d4', // 碳交易
+                            '#8b5cf6'  // 技术服务
+                        ],
+                        borderColor: '#1a1a1a',
                         borderWidth: 1,
-                        borderRadius: 6
+                        borderRadius: 6,
+                        borderSkipped: false,
                     }]
                 },
                 options: {
@@ -1364,6 +1912,14 @@
                                 color: '#333333'
                             },
                             ticks: {
+                                color: '#b0b0b0',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '收益贡献比例 (%)',
                                 color: '#b0b0b0'
                             }
                         },
@@ -1372,34 +1928,58 @@
                                 color: '#333333'
                             },
                             ticks: {
-                                color: '#b0b0b0'
+                                color: '#b0b0b0',
+                                maxRotation: 45
                             }
                         }
                     },
                     plugins: {
                         legend: {
-                            labels: {
-                                color: '#f0f0f0'
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `收益贡献: ${context.raw}%`;
+                                }
                             }
                         }
                     }
                 }
             });
             
-            // 价格走势图表
+            // JEBI REITs价格走势图表
             const priceCtx = document.getElementById('priceChart').getContext('2d');
+            
+            // 生成更真实的价格数据
+            const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+            let priceData = [38.2];
+            for (let i = 1; i < 12; i++) {
+                // 模拟价格波动
+                let change = (Math.random() - 0.5) * 4;
+                let newPrice = priceData[i-1] + change;
+                // 确保价格总体上涨趋势
+                if (i > 6) newPrice += 0.5;
+                priceData.push(Math.round(newPrice * 100) / 100);
+            }
+            
             new Chart(priceCtx, {
                 type: 'line',
                 data: {
-                    labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月'],
+                    labels: months,
                     datasets: [{
                         label: 'JEBI REITs价格 ($)',
-                        data: [38.2, 39.5, 40.1, 41.3, 40.8, 41.5, 42.0, 41.7, 42.2, 42.75],
+                        data: priceData,
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.1)',
                         borderWidth: 3,
                         fill: true,
-                        tension: 0.4
+                        tension: 0.4,
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#0a0a0a',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
                     }]
                 },
                 options: {
@@ -1411,6 +1991,14 @@
                                 color: '#333333'
                             },
                             ticks: {
+                                color: '#b0b0b0',
+                                callback: function(value) {
+                                    return '$' + value;
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '价格 ($)',
                                 color: '#b0b0b0'
                             }
                         },
@@ -1426,9 +2014,23 @@
                     plugins: {
                         legend: {
                             labels: {
-                                color: '#f0f0f0'
+                                color: '#f0f0f0',
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `价格: $${context.raw}`;
+                                }
                             }
                         }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
                     }
                 }
             });
